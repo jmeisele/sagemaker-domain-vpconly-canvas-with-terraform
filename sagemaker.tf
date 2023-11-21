@@ -85,13 +85,3 @@ resource "aws_sagemaker_domain" "sagemaker_domain" {
     home_efs_file_system = var.efs_retention_policy
   }
 }
-
-resource "aws_sagemaker_user_profile" "default_user" {
-  domain_id         = aws_sagemaker_domain.sagemaker_domain.id
-  user_profile_name = "defaultuser"
-
-  user_settings {
-    execution_role  = module.sagemaker_domain_execution_role.default_execution_role
-    security_groups = [module.sagemaker_domain_vpc.security_group_id]
-  }
-}
