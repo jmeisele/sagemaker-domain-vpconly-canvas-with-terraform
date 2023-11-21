@@ -3,7 +3,7 @@ data "aws_caller_identity" "current" {}
 data "aws_region" "current" {}
 
 resource "aws_kms_key" "sagemaker_efs_kms_key" {
-  description = "KMS key used to encrypt SageMaker Studio EFS volume"
+  description         = "KMS key used to encrypt SageMaker Studio EFS volume"
   enable_key_rotation = true
 }
 
@@ -61,7 +61,7 @@ resource "aws_sagemaker_domain" "sagemaker_domain" {
     jupyter_server_app_settings {
       default_resource_spec {
         lifecycle_config_arn = aws_sagemaker_studio_lifecycle_config.auto_shutdown.arn
-        sagemaker_image_arn = local.sagemaker_image_arn
+        sagemaker_image_arn  = local.sagemaker_image_arn
       }
       lifecycle_config_arns = [aws_sagemaker_studio_lifecycle_config.auto_shutdown.arn]
     }
