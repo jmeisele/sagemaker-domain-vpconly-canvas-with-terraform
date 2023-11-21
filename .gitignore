@@ -76,5 +76,3 @@ cython_debug/
 # Drawio
 # backup files for diagrams
 **/.$*.bkp
-
-*.tar.gz
