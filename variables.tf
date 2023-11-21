@@ -1,3 +1,17 @@
+variable "account_id" {
+  type        = number
+  description = "AWS Account ID"
+  default     = 288195736164
+}
+
+variable "access_key" {
+  type = string
+}
+
+variable "secret_key" {
+  type = string
+}
+
 variable "domain_name" {
   description = "Sagemaker Domain Name"
   type        = string
@@ -7,7 +21,7 @@ variable "domain_name" {
 variable "auth_mode" {
   description = "The mode of authentication that members use to access the domain. Valid values are IAM and SSO"
   type        = string
-  default     = "IAM"
+  default     = "SSO"
 }
 
 variable "app_network_access_type" {
@@ -19,7 +33,7 @@ variable "app_network_access_type" {
 variable "efs_retention_policy" {
   description = "The retention policy for data stored on an EFS volume. Valid values are Retain or Delete."
   type        = string
-  default     = "Retain"
+  default     = "Delete"
 }
 
 variable "aws_region" {
