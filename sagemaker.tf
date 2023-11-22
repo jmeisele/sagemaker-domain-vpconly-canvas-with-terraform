@@ -57,7 +57,8 @@ resource "aws_sagemaker_domain" "sagemaker_domain" {
   subnet_ids  = module.sagemaker_domain_vpc.subnet_ids
 
   default_user_settings {
-    execution_role = module.sagemaker_domain_execution_role.default_execution_role
+    execution_role  = module.sagemaker_domain_execution_role.default_execution_role
+    security_groups = [module.sagemaker_domain_vpc.security_group_id]
     jupyter_server_app_settings {
       default_resource_spec {
         lifecycle_config_arn = aws_sagemaker_studio_lifecycle_config.auto_shutdown.arn
